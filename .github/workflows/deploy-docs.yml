@@ -10,6 +10,11 @@ on:
       - main
       - master
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -39,6 +44,10 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs/.vitepress/dist
         cname: ''  # 如果有自定义域名，可以在这里设置
+        user_name: github-actions[bot]
+        user_email: github-actions[bot]@users.noreply.github.com
+        user_name: github-actions[bot]
+        user_email: github-actions[bot]@users.noreply.github.com
         
   test-build:
     runs-on: ubuntu-latest
